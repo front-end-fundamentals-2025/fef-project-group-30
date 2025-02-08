@@ -2,26 +2,29 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
-    font-family: "Onest", serif;
+    min-height: 100%;
+    font-family: "Mukta", serif;
     background-color: #ffffff;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .header {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    padding: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
     position: relative;
 }
 
 .logo {
-    font-family: "Mukta", serif;
+    font-family: "Oswald", serif;
     text-decoration: none;
-    font-size: 3em;
-    color: #ab8a81;
+    font-size: 2em;
+    color: #000;
+    margin-left: 20px;
 }
 
 .main-nav {
@@ -35,6 +38,7 @@ body {
 .left-nav, .right-nav {
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
 }
 
 .left-nav li, .right-nav li {
@@ -43,7 +47,7 @@ body {
 }
 
 .left-nav {
-    padding-left: 10px;
+    padding-left: 0;
 }
 
 .right-nav li {
@@ -52,39 +56,39 @@ body {
 
 .left-nav li a, .right-nav li a {
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 5px;
     color: #000;
     display: block;
-    text-align: center;
 }
 
 .left-nav li a:hover, .right-nav li a:hover {
-    text-decoration: underline;
-    color: #ab8a81;
+    color: #a59275;
 }
 
 .dropdown-content {
     display: none;
     overflow: hidden;
     position: absolute;
-    height: 0;
     left: 0;
     background-color: #fff;
     width: 100vw;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     transition: height 0.3s ease, opacity 0.3s ease;
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
+    font-size: 15px;
 }
 
 .dropdown-content ul {
-    columns: 2;
-    column-gap: 30px;
+    margin: 0;
+    list-style: none;
 }
 
-.dropdown-content li {
-    margin-bottom: 10-px;
+.dropdown-content li a {
+    display: block;
+    text-align: left;
+    padding: 3px 15px;
 }
 
 .dropdown:hover .dropdown-content, .dropdown.active .dropdown-content {
@@ -93,9 +97,13 @@ body {
     opacity: 1;
 }
 
+.dropdown-content li a:hover {
+    text-decoration: underline;
+}
+
 #search-box input {
     width: 100%;
-    padding: 5px;
+    padding: 10px;
     border: none;
     font-size: 1em;
 }
@@ -105,16 +113,77 @@ body.fade {
     pointer-events: none;
 }
 
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.main-video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.main-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0.1);
+}
+
+.main-video p {
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 300px;
+    line-height: 1.6;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,auto);
+    gap: 10px;
+    row-gap: 10px;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+.shop {
+    display: block;
+    color: black;
+    margin: 20px auto;
+    font-size: 1.2em;
+    text-align: center;
+    width: fit-content;
+}
+
 footer {
     width: 100%;
     display: flex;
-    background-color: #ab8a81;
-    color: #f4f4f4;
-    padding-bottom: 50px;
+    background-color: #ffffff;
+    color: black;
     box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    font-family: "Mukta", serif;
+    position: relative;
+    margin-top: auto;
 }
 
 .footer-content {
@@ -125,6 +194,7 @@ footer {
     gap: 15px;
     box-sizing: border-box;
     width: 100%;
+    font-size: 15px;
 }
 
 .left-footer {
@@ -140,14 +210,19 @@ footer {
 
 .left-footer a {
     text-decoration: none;
-    color: #f4f4f4;
+    color: #000000;
     font-size: 1em;
+}
+
+.left-footer a:hover {
+    text-decoration: underline;
 }
 
 .social-media {
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: transform 0.3s ease-out;
 }
 
 .social-media img {
@@ -155,11 +230,22 @@ footer {
     margin-top: 20px;
 }
 
+.social-media img:hover {
+    transform: translateY(-2px);
+}
+
 #copyright {
     width: 100%;
     padding-left: 20px;
-    position: absolute;
+    position: relative;
     font-size: 0.8em;
     bottom: 0;
-    color: #f4f4f4;
+    margin-top: 30px;
+}
+
+#hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    width: 100%;
+    margin: 10px 0;
 }
