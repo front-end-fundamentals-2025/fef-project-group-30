@@ -219,6 +219,12 @@ button {
     margin-top: 20px;
 }
 
+#login, #register {
+    color: black;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
 footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

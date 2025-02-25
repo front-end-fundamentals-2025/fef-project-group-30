@@ -84,3 +84,69 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Search input element not found");
     }
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Register form
+    const registerForm = document.getElementById("register-form");
+    const registerMessage = document.getElementById("register");
+
+    registerForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent form submission
+
+        // Get the form data
+        const firstName = document.getElementById('register-first-name').value;
+        const lastName = document.getElementById("register-last-name").value;
+        const email = document.getElementById("register-email").value.toLowerCase(); // Convert to lowercase
+        const password = document.getElementById("register-password").value;
+
+        // Save to local storage
+        const userData = {
+            fullName: `${firstName} ${lastName}`,
+            email: email,
+            password: password
+        };
+
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        // Show success message
+        registerMessage.textContent = "Welcome to LOOPSTYLE!";
+
+        // Clear the form
+        registerForm.reset();
+    });
+
+    // Sign in form
+    const loginForm = document.getElementById("login-form");
+    const loginMessage = document.getElementById("login");
+
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent form submission
+
+        // Get the form data
+        const email = document.getElementById("login-email").value.toLowerCase(); // Convert to lowercase
+        const password = document.getElementById("login-password").value;
+
+        // Get the data from local storage
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            const userData = JSON.parse(storedUserData);
+
+            // Check if the email and password match
+            if (userData.email === email && userData.password === password) {
+                // Sign in success, redirect to the user page
+                window.location.href = "account2.html";
+            } else {
+                loginMessage.textContent = "Invalid email or password";
+                loginMessage.style.color = "red";
+            }
+        } else {
+            loginMessage.textContent = "User not found";
+            loginMessage.style.color = "red";
+        }
+
+        // Clear the form
+        loginForm.reset();
+    });
+});

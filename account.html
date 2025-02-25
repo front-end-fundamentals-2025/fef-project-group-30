@@ -90,7 +90,7 @@
                     </div>
                 </li>
                 <li><a href="account.html" class="light">Account</a></li>
-                <li><a href="#" class="light">Cart</a></li>
+                <li><a href="shopping cart.html" class="light">Cart</a></li>
             </ul>
         </nav>
     </div>
@@ -103,25 +103,27 @@
         </div>
         <div class="user">
             <h2>Sign in</h2>
-            <form>
-                <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <label for="password"></label>
-                <input type="password" id="password" name="password" placeholder="Password" required>
+            <form id="login-form">
+                <label for="login-email"></label>
+                <input type="email" id="login-email" name="email" placeholder="Email" required>
+                <label for="login-password"></label>
+                <input type="password" id="login-password" name="password" placeholder="Password" required>
                 <a id="forgot" href="#">Forgot your password ?</a>
                 <button class="signin" type="submit">SIGN IN</button>
+                <p id="login"></p>
             </form>
             <h2>Register</h2>
-            <form>
-                <label for="first-name"></label>
-                <input type="text" id="first-name" name="first-name" placeholder="First name" required>
-                <label for="last-name"></label>
-                <input type="text" id="last-name" name="last-name" placeholder="Last name" required>
-                <label for="email"></label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <label for="password"></label>
-                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            <form id="register-form">
+                <label for="register-first-name"></label>
+                <input type="text" id="register-first-name" name="first-name" placeholder="First name" required>
+                <label for="register-last-name"></label>
+                <input type="text" id="register-last-name" name="last-name" placeholder="Last name" required>
+                <label for="register-email"></label>
+                <input type="email" id="register-email" name="email" placeholder="Email" required>
+                <label for="register-password"></label>
+                <input type="password" id="register-password" name="password" placeholder="Create a password" required>
                 <button class="register" type="submit">CREATING</button>
+                <p id="register"></p>
             </form>
         </div>
     </section>
