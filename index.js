@@ -150,3 +150,18 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.reset();
     });
 });
+
+// payment confirmation
+document.addEventListener('DOMContentLoaded', () => {
+    // get "proceed to checkout" button
+    const checkoutButton = document.querySelector('.checkout-button');
+
+    // add event listener to the button
+    if (checkoutButton) {
+        checkoutButton.addEventListener('click', (e) => {
+            e.preventDefault(); // prevent form submission
+            // direct to payment page
+            window.location.href = 'pay.html';
+        });
+    }
+});
