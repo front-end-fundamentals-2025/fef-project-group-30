@@ -181,22 +181,21 @@ body.fade {
 
 .success-icon {
     font-size: 2em;
-    rotate: -20deg;
     animation-name: icon;
     transition: all 0.3s ease;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
 }
 
 @keyframes icon {
     0% {
-        transform: rotate(-20deg);
+        transform: rotate(0deg);
     }
     50% {
-        transform: rotate(40deg);
+        transform: rotate(20deg);
     }
     100% {
-        transform: rotate(25deg);
+        transform: rotate(0deg);
     }
 }
 
