@@ -393,8 +393,9 @@ footer {
 .new-arrivals-intro h2 {
     font-size: 2.5em; 
     margin-bottom: 15px; 
-    color: #333;
-    font-weight: lighter;
+    color: #000000;
+    font-family: "Oswald", serif;
+    font-weight: 400;
 }
 
 .new-arrivals-intro p {
