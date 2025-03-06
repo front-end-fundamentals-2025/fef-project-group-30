@@ -70,21 +70,37 @@ function openTab(evt, tabName) {
 
 // search input
 document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("search-input");
+    const searchInput = document.getElementById("search-input") || document.getElementById("searchInput"); // 兼容不同 id
 
     if (searchInput) {
         searchInput.addEventListener("keypress", function (event) {
             if (event.key === "Enter") {
-                if (searchInput.value.toLowerCase() === "women") {
-                    window.location.href = "women.html";
-                }
+                handleSearch(searchInput.value.trim().toLowerCase());
             }
         });
+
+        searchInput.addEventListener("input", function (event) {
+            handleSearch(event.target.value.trim().toLowerCase());
+        });
     } else {
-        console.error("Search input element not found");
+        console.error("Search input element not found. Please check the input field ID in your HTML.");
     }
 });
-
+function handleSearch(value) {
+    if (value === "women") {
+        window.location.href = "women.html";
+    } else if (value === "men") {
+        window.location.href = "Men.html";  
+    } else if (value === "kid") {
+        window.location.href = "Kid.html";
+    } else if (value === "home") {
+        window.location.href = "home.html";
+    } else if (value === "sell") {
+        window.location.href = "sell.html";
+    } else if (value === "offline") {
+        window.location.href = "sell2.html";
+    }
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
