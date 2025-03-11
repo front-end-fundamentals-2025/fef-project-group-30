@@ -94,7 +94,8 @@ function removeFromCart(index) {
 function updateTotal() {
     let cart = getCart();
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const shipping = 35; 
+    // delivery is only charged when there are items in the shopping cart
+    const shipping = cart.length > 0 ? 35 :0;
     const total = subtotal + shipping;
 
     document.querySelector('.summary-row:nth-child(1) span:last-child').textContent = `${subtotal} SEK`;
