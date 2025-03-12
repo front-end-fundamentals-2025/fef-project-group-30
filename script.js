@@ -94,26 +94,68 @@ function removeFromCart(index) {
 function updateTotal() {
     let cart = getCart();
     const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    // delivery is only charged when there are items in the shopping cart
-    const shipping = cart.length > 0 ? 35 :0;
+    // get the discountcode value
+    const discountCode = document.getElementById("discount-code")?.value?.toUpperCase();
+
+    // set the default shipping fee to 35 SEK (when there are items in the cart)
+    let shipping = cart.length > 0 ? 35 : 0; // delivery fee is 35sek
+    if (cart.length > 0 && discountCode === 'WINTER24') {
+        shipping = 0;
+    }
+
     const total = subtotal + shipping;
 
-    document.querySelector('.summary-row:nth-child(1) span:last-child').textContent = `${subtotal} SEK`;
-    document.querySelector('.summary-row:nth-child(2) span:last-child').textContent = `${shipping} SEK`;
-    document.querySelector('.total span:last-child').textContent = `${total} SEK`;
+ // use a more specific selector to update the amount
+ const summaryDetails = document.querySelector('.summary-details');
+ if (summaryDetails) {
+     // update the amount of order
+     summaryDetails.querySelector('.summary-row:first-child span:last-child').textContent = `${subtotal} SEK`;
+     
+     // update Shipping Rates - use the attribute selector to find the shipping rate line
+     const deliveryRow = summaryDetails.querySelector('.summary-row span[data-i18n="delivery"]').parentElement;
+     if (deliveryRow) {
+         deliveryRow.querySelector('span:last-child').textContent = `${shipping} SEK`;
+     }
+     
+     // update the total
+     summaryDetails.querySelector('.summary-row.total span:last-child').textContent = `${total} SEK`;
+ }
+
+ // ddebug Information
+ console.log('Cart length:', cart.length);
+ console.log('Subtotal:', subtotal);
+ console.log('Shipping:', shipping);
+ console.log('Total:', total);
 }
-// display shopping cart on page load
-window.onload = function () {
-    displayCart();
-    updateCartCount();
-    updateTotal();
+
+// make sure to execute immediately after the page loads
+window.onload = function() {
+ console.log('Page loaded');
+ displayCart();
+ updateCartCount();
+ updateTotal();
+ if (document.querySelector('.all-images')) {
+     getProductFromURL();
+ }
 };
 
-window.onload = function () {
-    displayCart();
-    updateCartCount();
-    updateTotal();
-};
+// apply discount code
+function applyDiscount() {
+    const cart = getCart();
+    const discountCode = document.getElementById("discount-code").value;
+
+    if (cart.length === 0) {
+        alert('Please add items to you cart first');
+        return;
+    }
+    if (discountCode.toUpperCase() === 'WINTER24') {
+        updateTotal ();
+        alert('Discount code applied successfully!');
+    } else {
+        alert('Invalid discount code');
+    }
+}
+
 function getProductFromURL() {
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
@@ -125,6 +167,12 @@ function getProductFromURL() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    getProductFromURL();
-});
+// Initialize page
+window.onload = function() {
+    displayCart();
+    updateCartCount();
+    updateTotal();
+    if (document.querySelector('.all-images')) {
+        getProductFromURL();
+    }
+};
