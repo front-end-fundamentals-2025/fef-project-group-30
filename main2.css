@@ -199,6 +199,30 @@ body.fade {
     width: fit-content;
 }
 
+
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    animation-name: fade;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

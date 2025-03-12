@@ -182,19 +182,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// about us
-document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".fade");
-
-    function CheckIfInView() {
-        elements.forEach(element => {
-            const rect = element.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                element.classList.add("show");
+// fade in
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
             }
+        });
+    }, {
+        threshold: 0.1
     });
-}
 
-    window.addEventListener("scroll", CheckIfInView);
-    CheckIfInView();
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
 });
