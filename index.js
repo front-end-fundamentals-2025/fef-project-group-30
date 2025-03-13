@@ -33,7 +33,7 @@ const box = document.getElementById("subscribe-box");
 const closeBtn = document.getElementById("close-btn");
 
 subscribeBtn.addEventListener("click", function () {
-    box.style.display = "block";
+    box.style.display = "flex";
 });
 
 closeBtn.addEventListener("click", function () {

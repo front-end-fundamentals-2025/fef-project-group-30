@@ -94,46 +94,46 @@
     </div>
 
     <section class="container">
-        <h3>List your item</h3>
+        <h3 data-i18n="listyouritem">List your item</h3>
         <form class="item-form">
             <div class="form-section images">
-                <label>Item Photos</label>
+                <label data-i18n="itemphotos">Item Photos</label>
                 <div class="upload">
                     <p>Click to upload photos (max 5)</p>
                 </div>
             </div>
 
             <div class="form-section">
-                <label for="title">Title</label>
+                <label for="title" data-i18n="title">Title</label>
                 <input type="text" id="title" placeholder="Knitwear">
             </div>
             
             <div class="form-section">
-                <label for="category">Category</label>
+                <label for="category" data-i18n="category">Category</label>
                 <select id="category">
-                    <option value="Tops">Tops</option>
-                    <option value="Pants">Pants</option>
-                    <option value="Accessories">Accessories</option>
-                    <option value="Home">Home</option>
+                    <option value="Tops" data-i18n="top">Tops</option>
+                    <option value="Pants" data-i18n="pants">Pants</option>
+                    <option value="Accessories" data-i18n="accessories">Accessories</option>
+                    <option value="Home" data-i18n="home">Home</option>
                 </select>
             </div>
 
             <div class="form-section">
-                <label for="brand">Brand</label>
+                <label for="brand" data-i18n="brand">Brand</label>
                 <input type="text" id="brand" placeholder="ARKET">
             </div>
 
             <div class="form-section condition">
-                <label>Condition</label>
+                <label data-i18n="condition">Condition</label>
                 <div class="condition-options">
-                    <button type="button" class="btn">New with tags</button>
-                    <button type="button" class="btn">Like new</button>
-                    <button type="button" class="btn">Good</button>
+                    <button type="button" class="btn" data-i18n="tags">New with tags</button>
+                    <button type="button" class="btn" data-i18n="likenew">Like new</button>
+                    <button type="button" class="btn" data-i18n="good">Good</button>
                 </div>
             </div>
 
             <div class="form-section size">
-                <label>Size</label>
+                <label data-i18n="size">Size</label>
                 <div class="size-options">
                     <button type="button" class="btn">XS</button>
                     <button type="button" class="btn">S</button>
@@ -143,17 +143,16 @@
             </div>
 
             <div class="form-section">
-                <label for="price">Price</label>
+                <label for="price" data-i18n="sellprice">Price</label>
                 <input type="number" id="price" placeholder="100,00 SEK">
             </div>
 
             <div class="form-actions">
-                <button type="button" class="btn secondary">Save as Draft</button>
-                <button type="submit" class="btn primary">List Item</button>
+                <button type="button" class="btn secondary" data-i18n="saveasdraft">Save as Draft</button>
+                <button type="submit" class="btn primary" data-i18n="listitem">List Item</button>
             </div>
         </form>
     </section>
-    
     
     <hr id="hr">
     
@@ -202,17 +201,16 @@
                 <h3 data-i18n="subscribeTitle">Enjoy 15% off on your first order</h3>
                 <button class="subscribe-btn" data-i18n=subscribeutton>SUBSCRIBE</button>
             </div>
-
-            <div id="subscribe-box" class="box">
-                <div class="box-content">
-                    <h2 data-i18n="subscribeSuccess">Thank you for subcribing!</h2>
-                    <p data-i18n="subscribeMessage">We've sent a confirmation email to you.</p>
-                    <button id="close-btn">Close</button>
-                </div>
-            </div>
                 <p id="copyright">©LOOPSTYLE 2025</p>
         </div>
     </footer>
+    <div id="subscribe-box" class="box">
+        <div class="box-content">
+            <h2 data-i18n="subscribeSuccess">Thank you for subcribing!</h2>
+            <p data-i18n="subscribeMessage">We've sent a confirmation email to you.</p>
+            <button id="close-btn">Close</button>
+        </div>
+    </div>
     <script src="lan.js"></script>
 </body>
 
